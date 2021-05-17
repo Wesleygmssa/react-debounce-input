@@ -1,25 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { DebounceInput } from "react-debounce-input";
 
-class App extends React.Component {
-  state = {
-    value: "",
-  };
+const App = () => {
+  const [value, setValue] = useState("");
 
-  render() {
-    return (
-      <div>
-        <DebounceInput
-          minLength={3}
-          debounceTimeout={300}
-          onChange={(event) => this.setState({ value: event.target.value })}
-        />
+  return (
+    <div>
+      <DebounceInput
+        minLength={3}
+        debounceTimeout={300}
+        onChange={(event) => setValue(event.target.value)}
+      />
 
-        <p>Value: {this.state.value}</p>
-      </div>
-    );
-  }
-}
+      <p>Value: {value}</p>
+    </div>
+  );
+};
 
 export default App;
 
